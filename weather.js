@@ -36,6 +36,6 @@ http.createServer(function (req, res) {
             file.serve(req, res);
         }).resume();
     }
-}).listen(81);
+}).listen(8081);
 
 console.log("Weather Server running");
