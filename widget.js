@@ -31,12 +31,17 @@ $(document).ready(function() {
 });
 
 
+function round(x) {
+    return Math.round(x * 1000) / 1000.0;
+}
+
+
 function geolocate() {
     if("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function(pos) {
             $.getJSON("/weather?lat=" 
-                    + pos.coords.latitude + "&lon=" 
-                    + pos.coords.longitude,
+                    + round(pos.coords.latitude) + "&lon=" 
+                    + round(pos.coords.longitude),
                     function(data) {
                         var citytemp = $("#loctmp");
                         citytemp.text(
