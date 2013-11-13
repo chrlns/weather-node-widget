@@ -28,6 +28,8 @@ var file = new(static.Server)('.');
 http.createServer(function (req, res) {
     var args = require('url').parse(req.url, true);
 
+    console.log('Request for ' + args['pathname']);
+
     if(args['pathname'] == '/weather') {
         res.writeHead(200, {'Content-Type': 'application/json'});
 

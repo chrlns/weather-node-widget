@@ -39,24 +39,26 @@ function round(x) {
 function geolocate() {
     if('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function(pos) {
-            $.getJSON('/weather' 
+            var req = $.getJSON({url: '/weather' 
                     + '?lat=' + round(pos.coords.latitude) 
                     + '&lon=' + round(pos.coords.longitude)
                     + '&lang=' + navigator.language.substr(0, 2),
-                    
-                    function(data) {
-                        var citytemp = $('#loctmp');
-                        citytemp.text(
-                              data['name'] 
-                            + ', '
-                            + Math.round(data['main']['temp']));
-                        
-                        citytemp.append($('<span>&deg;C</span>'));
+                    timeout: 3000});
 
-                        $('#symbol').attr('alt', data['weather'][0]['main']);
-                        $('#symbol').attr('title', data['weather'][0]['main']);
-                        $('#symbol').attr('src', 'img/weather-' + data['weather'][0]['icon'] + '.svg');
-                    });
+            req.success(function(data) {
+                var loctmp = $('#loctmp');
+                loctmp.text(data['name'] + ', ' + Math.round(data['main']['temp']));
+                loctmp.append($('<span>&deg;C</span>'));
+                var symb = $('#symbol'); 
+                symb.attr('alt', data['weather'][0]['main']);
+                symb.attr('title', data['weather'][0]['main']);
+                symb.attr('src', 'img/weather-' + data['weather'][0]['icon'] + '.svg');
+            });
+
+            req.fail(function() {
+                var loctmp = $('#loctmp');
+                loctmp.text('!! Weather Service Failure !!');
+            });
         });
     }
 }
