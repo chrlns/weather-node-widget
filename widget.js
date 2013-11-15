@@ -39,10 +39,11 @@ function round(x) {
 function geolocate() {
     if('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function(pos) {
-            var req = $.getJSON({url: '/weather' 
+            var req = $.ajax({url: '/weather' 
                     + '?lat=' + round(pos.coords.latitude) 
                     + '&lon=' + round(pos.coords.longitude)
                     + '&lang=' + navigator.language.substr(0, 2),
+                    dataType: 'json',
                     timeout: 3000});
 
             req.success(function(data) {
