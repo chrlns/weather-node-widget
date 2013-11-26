@@ -1,0 +1,13 @@
+{
+  "name": "Weather Node Widget",
+  "description": "Displays weather condition on your current location using weather data from OpenWeatherMap.org",
+  "launch_path": "/widget.html",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Christian Lins",
+    "url": "http://lins.me/"
+  },
+  "default_locale": "en"
+}
