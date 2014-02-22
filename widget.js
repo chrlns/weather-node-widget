@@ -72,6 +72,18 @@ function geolocate() {
         };
         callWeatherService(pos);
     } else if("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(callWeatherService);
+        navigator.geolocation.getCurrentPosition(
+		    callWeatherService, 
+		    function() {
+				console.log("Timeout geolocation");
+				callWeatherService(
+					{
+						coords : {
+							latitude: 52.518611,
+							longitude: 13.408056
+						}
+					});
+            }, 
+            {timeout: 5000});
     }
 }
