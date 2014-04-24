@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/cli/weather-node-widget.png)](https://codeclimate.com/github/cli/weather-node-widget)
+
 Weather Node Widget
 ===================
 
