@@ -5,9 +5,15 @@
   "icons": {
     "128": "/img/icon-128.png"
   },
+  "permissions": {
+    "geolocation": {
+      "description": "Required to determine device position to display correct local weather data",
+      "access": "readonly"
+    }
+  },
   "developer": {
     "name": "Christian Lins",
-    "url": "http://lins.me/"
+    "url": "https://plus.google.com/+ChristianLins"
   },
   "default_locale": "en"
 }
