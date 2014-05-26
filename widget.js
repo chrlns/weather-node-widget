@@ -77,7 +77,6 @@ function geolocate() {
             callWeatherService,
             function () {
                 console.log("getCurrentPosition error = " + error);
-                alert("Could not retrieve position. I'll show weather of Berlin instead...");
                 callWeatherService({
                     coords: {
                         latitude: 52.518611,
