@@ -47,7 +47,7 @@ function geolocate() {
         navigator.geolocation.getCurrentPosition(
             callWeatherService,
             function (error) {
-                console.log("getCurrentPosition error = " + error);
+                console.log("getCurrentPosition error = " + error.code + " " + error.message);
                 callWeatherService({
                     coords: {
                         latitude: 52.518611,
