@@ -6,10 +6,7 @@
     "128": "/img/icon-128.png"
   },
   "permissions": {
-    "geolocation": {
-      "description": "Required to determine device position to display correct local weather data",
-      "access": "readonly"
-    }
+    "geolocation": {}
   },
   "developer": {
     "name": "Christian Lins",
