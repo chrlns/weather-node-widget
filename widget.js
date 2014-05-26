@@ -55,6 +55,7 @@ function geolocate() {
                     }
                 });
             }, {
+                enableHighAccuracy: true,
                 timeout: 30000
             });
     }
