@@ -14,13 +14,15 @@ function callWeatherService(pos) {
     });
 
     req.success(function (data) {
-        var loctmp = $("#loctmp");
-        loctmp.text(data["name"] + ", " + Math.round(data["main"]["temp"]));
+        var symb = $("#symbol"),
+            loctmp = $("#loctmp");
+
+        loctmp.text(data.name + ", " + Math.round(data.main.temp));
         loctmp.append($("<span>&deg;C</span>"));
-        var symb = $("#symbol");
-        symb.attr("alt", data["weather"][0]["main"]);
-        symb.attr("title", data["weather"][0]["main"]);
-        symb.attr("src", "img/weather-" + data["weather"][0]["icon"] + ".svg");
+
+        symb.attr("alt", data.weather[0].main);
+        symb.attr("title", data.weather[0].main);
+        symb.attr("src", "img/weather-" + data.weather[0].icon + ".svg");
     });
 
     req.fail(function () {
@@ -41,12 +43,11 @@ function geolocate() {
             }
         };
         callWeatherService(pos);
-    } else if ("geolocation" in navigator) {
+    } else if (navigator.geolocation !== undefined) {
         navigator.geolocation.getCurrentPosition(
             callWeatherService,
-            function () {
+            function (error) {
                 console.log("getCurrentPosition error = " + error);
-                git
                 callWeatherService({
                     coords: {
                         latitude: 52.518611,
