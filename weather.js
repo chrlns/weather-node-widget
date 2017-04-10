@@ -9,7 +9,7 @@ function getWeatherData(args, callback) {
                 + '&lang=' + args['lang'] 
                 + '&lat=' + args['lat'] 
                 + '&lon=' + args['lon']
-                + 'APPID=' + args['appid'],
+                + '&APPID=' + args['appid'],
         method: 'GET'
     };
 
