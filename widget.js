@@ -8,7 +8,10 @@ function round(x) {
 
 function callWeatherService(pos) {
     var req = $.ajax({
-        url: "/weather" + "?lat=" + round(pos.coords.latitude) + "&lon=" + round(pos.coords.longitude) + "&lang=" + navigator.language.substr(0, 2),
+        url: "/weather" + "?lat=" + round(pos.coords.latitude) 
+            + "&lon=" + round(pos.coords.longitude) 
+            + "&lang=" + navigator.language.substr(0, 2)
+            + "&appid=3776c814478e05120788758173be5ecd",
         dataType: "json",
         timeout: 3000
     });
