@@ -8,7 +8,8 @@ function getWeatherData(args, callback) {
         path: '/data/2.5/weather?units=metric&mode=json' 
                 + '&lang=' + args['lang'] 
                 + '&lat=' + args['lat'] 
-                + '&lon=' + args['lon'],
+                + '&lon=' + args['lon']
+                + 'APPID=' + args['appid'],
         method: 'GET'
     };
 
